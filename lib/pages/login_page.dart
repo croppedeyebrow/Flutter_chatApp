@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
+import "package:flutter_chapapp_firebase/auth/auth_service.dart";
 import "package:flutter_chapapp_firebase/components/my_button.dart";
 import "package:flutter_chapapp_firebase/components/my_textfield.dart";
 
@@ -14,11 +15,30 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key, required this.onTap});
 
   //로그인메서드
-  void login() {}
+  void login(BuildContext context) async {
+    //auth Service
+    final authService = AuthService();
+
+    //try login
+    try {
+      await authService.signInWithEmailAndPassword(
+          _emailController.text, _passwordController.text);
+    }
+
+    //catch any erros
+    catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text('Login Page'),
@@ -78,7 +98,7 @@ class LoginPage extends StatelessWidget {
             ),
 
             /// login button
-            MyButton(text: "로그인", onTap: login),
+            MyButton(text: "로그인", onTap: () => login(context)),
 
             SizedBox(
               height: 24,
