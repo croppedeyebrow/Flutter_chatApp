@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
+import "package:flutter_chapapp_firebase/auth/auth_service.dart";
 import "package:flutter_chapapp_firebase/components/my_button.dart";
 import "package:flutter_chapapp_firebase/components/my_textfield.dart";
 
@@ -15,7 +16,32 @@ class RegisterPage extends StatelessWidget {
   RegisterPage({super.key, required this.onTap});
 
   //회원가입메서드
-  void register() {}
+  void register(BuildContext context) {
+    // 회원 가입 서비스
+    final _auth = AuthService();
+
+    //비밀번호 일치하면, 계정 생성
+    if (_passwordController.text == _pwcomfirmController.text) {
+      try {
+        _auth.signUpWithEmailAndPassword(
+            _emailController.text, _passwordController.text);
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+      }
+    }
+    //비밀번호 일치하지 않으면, 알럿 다이얼로그 띄우기
+    else {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("비밀번호가 일치하지 않습니다."),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +117,10 @@ class RegisterPage extends StatelessWidget {
             ),
 
             /// login button
-            MyButton(text: "회원가입", onTap: register),
+            MyButton(
+              text: "회원가입",
+              onTap: () => register(context),
+            ),
 
             SizedBox(
               height: 24,
