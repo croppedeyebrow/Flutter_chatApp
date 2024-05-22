@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-import "package:flutter_chapapp_firebase/auth/auth_service.dart";
+import "package:flutter_chapapp_firebase/service/auth/auth_service.dart";
 import "package:flutter_chapapp_firebase/components/my_button.dart";
 import "package:flutter_chapapp_firebase/components/my_textfield.dart";
 
@@ -40,15 +40,6 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: Text('Login Page'),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            // 여기에 햄버거 메뉴를 열기 위한 로직을 추가하세요.
-          },
-        ),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-import "package:flutter_chapapp_firebase/auth/auth_service.dart";
+import "package:flutter_chapapp_firebase/service/auth/auth_service.dart";
 import "package:flutter_chapapp_firebase/components/my_button.dart";
 import "package:flutter_chapapp_firebase/components/my_textfield.dart";
 

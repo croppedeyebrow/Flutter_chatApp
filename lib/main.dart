@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chapapp_firebase/auth/auth_gate.dart';
+import 'package:flutter_chapapp_firebase/service/auth/auth_gate.dart';
 import 'package:flutter_chapapp_firebase/firebase_options.dart';
 
 import 'package:flutter_chapapp_firebase/themes/light_mode.dart';
