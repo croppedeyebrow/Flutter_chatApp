@@ -73,7 +73,8 @@ class ChatService {
 
     List<String> ids = [userID, otherUserID];
     ids.sort();
-    String chatRoomID = ids.join('-');
+    String chatRoomID = ids.join('_');
+    //0523오류기록 : 채팅방개설에서는 '_'로 아이디를 연결해서 방아이디를 만들었는데, 채팅에서 '-'로 해서 인식을 못했었음
 
     return _firestore
         .collection("chat_rooms")
