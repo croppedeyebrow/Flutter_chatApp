@@ -1,5 +1,7 @@
 # flutter_chapapp_firebase
 
+<img src = "https://github.com/croppedeyebrow/Flutter_chatApp/assets/142734435/9a330af4-574f-470f-b638-e136d2ffa9a2>
+
 <h1>플러터 채팅 앱  + 파이어베이스 연결</h1>
 
 <h2> 프로젝트 목적 : 파이어베이스 연결 및 데이터 통신 연습</h2>
